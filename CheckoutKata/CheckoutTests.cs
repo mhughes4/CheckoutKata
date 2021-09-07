@@ -15,17 +15,15 @@ namespace CheckoutKata
         }
 
         [Test]
-        public void ToHaveItemsInTheCart()
+        public void WhenIScanItemA_TheTotalIsThePriceOfItemA()
         {
-            int A = 50;
-
             var checkout = new Checkout();
 
-            var itemScan = checkout.ScanItem();
+            checkout.ScanItem("A");
 
             var total = checkout.GetTotal();
 
-            Assert.That(total, Is.Not.Zero);
+            Assert.That(total, Is.EqualTo(50));
         }
     }
 }
