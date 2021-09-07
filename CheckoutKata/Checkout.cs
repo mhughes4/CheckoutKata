@@ -1,44 +1,33 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace CheckoutKata
 {
     public class Checkout
     {
-        private int numberOfScannedAItems = 0;
-        private int numberOfScannedBItems = 0;
-        private int numberOfScannedCItems = 0;
+        private readonly List<Item> _scannableItems;
+        private string _scannedItemSku;
 
-        public void ScanItem(string item)
+        public Checkout(List<Item> scannableItems)
         {
-            numberOfScannedAItems += 1;
+            _scannableItems = scannableItems;
+        }
 
-            if (item == "B")
-            {
-                numberOfScannedBItems += 1;
-            }
-
-            if (item == "C")
-            {
-                numberOfScannedCItems += 1;
-            }
+        public void ScanItem(string sku)
+        {
+            _scannedItemSku = sku;
         }
 
         public int GetTotal()
         {
-            if (numberOfScannedCItems > 0)
-            {
-                return 20;
-            }
-            if (numberOfScannedBItems > 0)
-            {
-                return 30;
-            }
-            if (numberOfScannedAItems > 0)
-            {
-                return 50;
-            }
-            else
+            var scannedItem = _scannableItems.SingleOrDefault(i => i.Sku == _scannedItemSku);
+
+            if (scannedItem == null)
             {
                 return 0;
             }
+
+            return scannedItem.Price;
         }
     }
 }

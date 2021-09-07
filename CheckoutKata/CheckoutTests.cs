@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace CheckoutKata
 {
@@ -7,7 +8,12 @@ namespace CheckoutKata
         [Test]
         public void WhenIDoNotScanAnItem_TheTotalIsZero()
         {
-            var checkout = new Checkout();
+            var checkout = new Checkout(new List<Item>
+            {
+                new Item { Sku = "A", Price = 50},
+                new Item { Sku = "B", Price = 30},
+                new Item { Sku = "C", Price = 20}
+            });
 
             var total = checkout.GetTotal();
 
@@ -17,7 +23,12 @@ namespace CheckoutKata
         [Test]
         public void WhenIScanItemA_TheTotalIsThePriceOfItemA()
         {
-            var checkout = new Checkout();
+            var checkout = new Checkout(new List<Item>
+            {
+                new Item { Sku = "A", Price = 50},
+                new Item { Sku = "B", Price = 30},
+                new Item { Sku = "C", Price = 20}
+            });
 
             checkout.ScanItem("A");
 
@@ -29,7 +40,12 @@ namespace CheckoutKata
         [Test]
         public void WhenIScanItemB_TheTotalIsThePriceOfItemB()
         {
-            var checkout = new Checkout();
+            var checkout = new Checkout(new List<Item>
+            {
+                new Item { Sku = "A", Price = 50},
+                new Item { Sku = "B", Price = 30},
+                new Item { Sku = "C", Price = 20}
+            });
 
             checkout.ScanItem("B");
 
@@ -41,7 +57,12 @@ namespace CheckoutKata
         [Test]
         public void WhenIScanItemC_TheTotalIsThePriceOfItemC()
         {
-            var checkout = new Checkout();
+            var checkout = new Checkout(new List<Item>
+            {
+                new Item { Sku = "A", Price = 50},
+                new Item { Sku = "B", Price = 30},
+                new Item { Sku = "C", Price = 20}
+            });
 
             checkout.ScanItem("C");
 
