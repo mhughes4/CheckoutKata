@@ -1,8 +1,9 @@
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 
 namespace CheckoutKata
 {
-    public class Tests
+    public class CheckoutTests
     {
         [SetUp]
         public void Setup()
@@ -10,15 +11,21 @@ namespace CheckoutKata
         }
 
         [Test]
-        public void Test1()
+        public void WhenIDoNotScanAnItem_TheTotalIsZero()
         {
-            Assert.Pass();
-        }
+            var checkout = new Checkout();
 
-        [Test]
-        public void Test2()
+            var total = checkout.GetTotal();
+
+            Assert.That(total, Is.Zero);
+        }
+    }
+
+    public class Checkout
+    {
+        public int GetTotal()
         {
-            Assert.Pass();
+            return -1;
         }
     }
 }
