@@ -2,16 +2,28 @@ namespace CheckoutKata
 {
     public class Checkout
     {
-        private int numberOfScannedItems = 0;
+        private int numberOfScannedAItems = 0;
+        private int numberOfScannedBItems = 0;
 
         public void ScanItem(string item)
         {
-            numberOfScannedItems += 1;
+            numberOfScannedAItems += 1;
+
+            if(item == "B")
+            {
+                numberOfScannedBItems += 1;
+            }
+
         }
 
         public int GetTotal()
         {
-            if (numberOfScannedItems > 0)
+            if (numberOfScannedBItems > 0)
+            {
+                return 30;
+            }
+
+            if (numberOfScannedAItems > 0)
             {
                 return 50;
             }
@@ -19,6 +31,7 @@ namespace CheckoutKata
             {
                 return 0;
             }
+
         }
     }
 }
