@@ -1,10 +1,13 @@
-using System;
-
 namespace CheckoutKata
 {
     public class Checkout
     {
-        private int numberOfScannedItems;
+        private int numberOfScannedItems = 0;
+
+        public void ScanItem(string item)
+        {
+            numberOfScannedItems += 1;
+        }
 
         public int GetTotal()
         {
@@ -16,11 +19,6 @@ namespace CheckoutKata
             {
                 return 0;
             }
-        }
-
-        public void ScanItem(string s)
-        {
-            numberOfScannedItems += 1;
         }
     }
 }
