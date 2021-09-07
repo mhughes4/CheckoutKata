@@ -25,7 +25,7 @@ namespace CheckoutKata
     {
         public int GetTotal()
         {
-            return -1;
+            return 0;
         }
     }
 }
