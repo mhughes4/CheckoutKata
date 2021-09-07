@@ -37,5 +37,17 @@ namespace CheckoutKata
 
             Assert.That(total, Is.EqualTo(30));
         }
+
+        [Test]
+        public void WhenIScanItemC_TheTotalIsThePriceOfItemC()
+        {
+            var checkout = new Checkout();
+
+            checkout.ScanItem("C");
+
+            var total = checkout.GetTotal();
+
+            Assert.That(total, Is.EqualTo(20));
+        }
     }
 }
