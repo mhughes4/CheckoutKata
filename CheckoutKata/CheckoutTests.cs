@@ -27,7 +27,8 @@ namespace CheckoutKata
             {
                 new Item { Sku = "A", Price = 50},
                 new Item { Sku = "B", Price = 30},
-                new Item { Sku = "C", Price = 20}
+                new Item { Sku = "C", Price = 20},
+                new Item { Sku = "D", Price = 15}
             });
 
             checkout.ScanItem("A");
@@ -44,7 +45,8 @@ namespace CheckoutKata
             {
                 new Item { Sku = "A", Price = 50},
                 new Item { Sku = "B", Price = 30},
-                new Item { Sku = "C", Price = 20}
+                new Item { Sku = "C", Price = 20},
+                new Item { Sku = "D", Price = 15}
             });
 
             checkout.ScanItem("B");
@@ -61,7 +63,8 @@ namespace CheckoutKata
             {
                 new Item { Sku = "A", Price = 50},
                 new Item { Sku = "B", Price = 30},
-                new Item { Sku = "C", Price = 20}
+                new Item { Sku = "C", Price = 20},
+                new Item { Sku = "D", Price = 15}
             });
 
             checkout.ScanItem("C");
@@ -69,6 +72,24 @@ namespace CheckoutKata
             var total = checkout.GetTotal();
 
             Assert.That(total, Is.EqualTo(20));
+        }
+
+        [Test]
+        public void WhenIScanItemD_TheTotalIsThePriceOfItemD()
+        {
+            var checkout = new Checkout(new List<Item>
+            {
+                new Item { Sku = "A", Price = 50},
+                new Item { Sku = "B", Price = 30},
+                new Item { Sku = "C", Price = 20},
+                new Item { Sku = "D", Price = 15}
+            });
+
+            checkout.ScanItem("D");
+
+            var total = checkout.GetTotal();
+
+            Assert.That(total, Is.EqualTo(15));
         }
     }
 }
