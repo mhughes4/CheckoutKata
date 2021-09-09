@@ -105,8 +105,9 @@ namespace CheckoutKata
             });
 
             checkout.ScanItem("C");
+            checkout.ScanItem("C");
 
-            var sum = checkout.CalculateTotal();
+            var sum = checkout.GetTotal();
             Assert.That(sum, Is.EqualTo(40));
         }
     }
