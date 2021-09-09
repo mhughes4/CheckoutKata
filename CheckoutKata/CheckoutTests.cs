@@ -12,7 +12,8 @@ namespace CheckoutKata
             {
                 new Item { Sku = "A", Price = 50},
                 new Item { Sku = "B", Price = 30},
-                new Item { Sku = "C", Price = 20}
+                new Item { Sku = "C", Price = 20},
+                new Item { Sku = "D", Price = 15}
             });
 
             var total = checkout.GetTotal();
@@ -90,6 +91,23 @@ namespace CheckoutKata
             var total = checkout.GetTotal();
 
             Assert.That(total, Is.EqualTo(15));
+        }
+
+        [Test]
+        public void WhenIScanAnItem_TheTotalIsTheSumOfAllItems()
+        {
+            var checkout = new Checkout(new List<Item>
+            {
+                new Item { Sku = "A", Price = 50},
+                new Item { Sku = "B", Price = 30},
+                new Item { Sku = "C", Price = 20},
+                new Item { Sku = "D", Price = 15}
+            });
+
+            checkout.ScanItem("C");
+
+            var sum = checkout.CalculateTotal();
+            Assert.That(sum, Is.EqualTo(40));
         }
     }
 }
