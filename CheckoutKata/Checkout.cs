@@ -27,7 +27,7 @@ namespace CheckoutKata
                 return 0;
             }
 
-            return scannedItem.Price;
+            return scannedItem.Price + scannedItem.Price;
         }
 
         public int CalculateTotal()

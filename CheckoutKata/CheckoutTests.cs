@@ -33,10 +33,11 @@ namespace CheckoutKata
             });
 
             checkout.ScanItem("A");
+            checkout.ScanItem("A");
 
             var total = checkout.GetTotal();
 
-            Assert.That(total, Is.EqualTo(50));
+            Assert.That(total, Is.EqualTo(100));
         }
 
         [Test]
@@ -51,10 +52,11 @@ namespace CheckoutKata
             });
 
             checkout.ScanItem("B");
+            checkout.ScanItem("B");
 
             var total = checkout.GetTotal();
 
-            Assert.That(total, Is.EqualTo(30));
+            Assert.That(total, Is.EqualTo(60));
         }
 
         [Test]
@@ -69,10 +71,11 @@ namespace CheckoutKata
             });
 
             checkout.ScanItem("C");
+            checkout.ScanItem("C");
 
             var total = checkout.GetTotal();
 
-            Assert.That(total, Is.EqualTo(20));
+            Assert.That(total, Is.EqualTo(40));
         }
 
         [Test]
@@ -87,10 +90,11 @@ namespace CheckoutKata
             });
 
             checkout.ScanItem("D");
+            checkout.ScanItem("D");
 
             var total = checkout.GetTotal();
 
-            Assert.That(total, Is.EqualTo(15));
+            Assert.That(total, Is.EqualTo(30));
         }
 
         [Test]
